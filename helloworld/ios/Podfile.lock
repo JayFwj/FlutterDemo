@@ -1,0 +1,101 @@
+PODS:
+  - dynamic_list_view (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - flutter_socket_io (0.0.1):
+    - Flutter
+  - flutter_sound (0.0.1):
+    - Flutter
+  - flutter_webview_plugin (0.0.1):
+    - Flutter
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - image_picker (0.0.1):
+    - Flutter
+  - keyboard_visibility (0.5.0):
+    - Flutter
+    - Reachability
+  - location (0.0.1):
+    - Flutter
+  - path_provider (0.0.1):
+    - Flutter
+  - Reachability (3.2)
+  - shared_preferences (0.0.1):
+    - Flutter
+  - sqflite (0.0.1):
+    - Flutter
+    - FMDB (~> 2.7.2)
+  - video_player (0.0.1):
+    - Flutter
+  - webview_flutter (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - dynamic_list_view (from `.symlinks/plugins/dynamic_list_view/ios`)
+  - Flutter (from `.symlinks/flutter/ios`)
+  - flutter_socket_io (from `.symlinks/plugins/flutter_socket_io/ios`)
+  - flutter_sound (from `.symlinks/plugins/flutter_sound/ios`)
+  - flutter_webview_plugin (from `.symlinks/plugins/flutter_webview_plugin/ios`)
+  - image_picker (from `.symlinks/plugins/image_picker/ios`)
+  - keyboard_visibility (from `.symlinks/plugins/keyboard_visibility/ios`)
+  - location (from `.symlinks/plugins/location/ios`)
+  - path_provider (from `.symlinks/plugins/path_provider/ios`)
+  - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
+  - sqflite (from `.symlinks/plugins/sqflite/ios`)
+  - video_player (from `.symlinks/plugins/video_player/ios`)
+  - webview_flutter (from `.symlinks/plugins/webview_flutter/ios`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FMDB
+    - Reachability
+
+EXTERNAL SOURCES:
+  dynamic_list_view:
+    :path: ".symlinks/plugins/dynamic_list_view/ios"
+  Flutter:
+    :path: ".symlinks/flutter/ios"
+  flutter_socket_io:
+    :path: ".symlinks/plugins/flutter_socket_io/ios"
+  flutter_sound:
+    :path: ".symlinks/plugins/flutter_sound/ios"
+  flutter_webview_plugin:
+    :path: ".symlinks/plugins/flutter_webview_plugin/ios"
+  image_picker:
+    :path: ".symlinks/plugins/image_picker/ios"
+  keyboard_visibility:
+    :path: ".symlinks/plugins/keyboard_visibility/ios"
+  location:
+    :path: ".symlinks/plugins/location/ios"
+  path_provider:
+    :path: ".symlinks/plugins/path_provider/ios"
+  shared_preferences:
+    :path: ".symlinks/plugins/shared_preferences/ios"
+  sqflite:
+    :path: ".symlinks/plugins/sqflite/ios"
+  video_player:
+    :path: ".symlinks/plugins/video_player/ios"
+  webview_flutter:
+    :path: ".symlinks/plugins/webview_flutter/ios"
+
+SPEC CHECKSUMS:
+  dynamic_list_view: 715e9a7369dc2340db9a3fd4dd54134cfca4bf8f
+  Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+  flutter_socket_io: fce27977d95a82c181bd959180f33384f51a5973
+  flutter_sound: 0e8163ceac1e00eb6d894e2ae4641ba726a2c479
+  flutter_webview_plugin: ed9e8a6a96baf0c867e90e1bce2673913eeac694
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  image_picker: 16e5fec1fbc87fd3b297c53e4048521eaf17cd06
+  keyboard_visibility: 96a24de806fe6823c3ad956c01ba2ec6d056616f
+  location: 3a2eed4dd2fab25e7b7baf2a9efefe82b512d740
+  path_provider: f96fff6166a8867510d2c25fdcc346327cc4b259
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  shared_preferences: 1feebfa37bb57264736e16865e7ffae7fc99b523
+  sqflite: ff1d9da63c06588cc8d1faf7256d741f16989d5a
+  video_player: 3964090a33353060ed7f58aa6427c7b4b208ec21
+  webview_flutter: 1aa7604e6cdb451a9b7ed2c37d5454c0b440246b
+
+PODFILE CHECKSUM: aff02bfeed411c636180d6812254b2daeea14d09
+
+COCOAPODS: 1.6.1
