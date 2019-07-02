@@ -755,24 +755,7 @@ class HomeNavBarView extends PreferredSize {
       ),
       margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
     );
-    // MediaQuery.of(context)
- 
-    // return SafeArea(
-    //   top: true,
-    //   child: 
-    //    Container(
-    //     child: Row(
-    //       children: <Widget>[
-    //         logoview,
-    //         Flexible(
-    //           child: searchContainer,
-    //         )
-    //       ],
-    //     ),
-    //     height: 80,
-    //   ) 
-    // );
-
+      
    var navView = SafeArea(
       top: true,
       child: 
@@ -788,15 +771,9 @@ class HomeNavBarView extends PreferredSize {
         height: 80,
       ) 
     ); 
-
-    //================
-    // final Brightness brightness = widget.brightness
-    //   ?? appBarTheme.brightness
-    //   ?? themeData.primaryColorBrightness;
-    final AppBarTheme appBarTheme = AppBarTheme.of(context);
-
-    final Brightness brightness = appBarTheme.brightness;
-
+ 
+    final AppBarTheme appBarTheme = AppBarTheme.of(context); 
+    final Brightness brightness = appBarTheme.brightness; 
     final SystemUiOverlayStyle overlayStyle = brightness == Brightness.dark
       ? SystemUiOverlayStyle.light
       : SystemUiOverlayStyle.dark;
