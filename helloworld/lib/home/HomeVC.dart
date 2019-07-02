@@ -140,29 +140,19 @@ class HomeScreenState extends State<HomeScreen> {
       ),
     );
 
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.black));
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+      systemNavigationBarColor:Colors.black,
+      statusBarColor: Colors.black));
     return Scaffold(
-
       appBar: HomeNavBarView(),
-      // AppBar(
-      //   backgroundColor: Colors.white,
-      //   title: Container(child: HomeNavBarView(), height: 40, width: 300,color: Colors.orange,),
-      // ),
-      body: Container(
+      // appBar: AppBar(title: Text("2"),brightness: Brightness.light,),
+        body: Container(
         child: Stack(
           children: <Widget>[
             refreshListView,
-            //overlayView
           ],
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   child: Text("Scroll"),
-      //   onPressed: () {
-      //     _scrollController.animateTo(100,
-      //         duration: Duration(seconds: 1), curve: null);
-      //   },
-      // ),
     );
   }
 
@@ -580,7 +570,9 @@ class BrandItemView extends StatelessWidget {
                       new GestureDetector(
                           onTap: () {
                             // Navigator.pushNamed(context, "/animation");
-                            Navigator.pushNamed(context, "/WebViewDemo");
+                            Navigator.pushNamed(context, "/MallVC", arguments: dataItem);
+
+
 
                             //Scaffold.of(context).showSnackBar(SnackBar(content: Text("官网商场")));
                           },
@@ -726,7 +718,7 @@ class SelectionButton extends StatelessWidget {
   }
 }
 
-//MARK:导航栏
+//MARK:导航栏 
 class HomeNavBarView extends PreferredSize {
   @override
   Widget build(BuildContext context) {
@@ -764,9 +756,27 @@ class HomeNavBarView extends PreferredSize {
       margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
     );
     // MediaQuery.of(context)
-    return SafeArea(
+ 
+    // return SafeArea(
+    //   top: true,
+    //   child: 
+    //    Container(
+    //     child: Row(
+    //       children: <Widget>[
+    //         logoview,
+    //         Flexible(
+    //           child: searchContainer,
+    //         )
+    //       ],
+    //     ),
+    //     height: 80,
+    //   ) 
+    // );
+
+   var navView = SafeArea(
       top: true,
-      child: Container(
+      child: 
+       Container(
         child: Row(
           children: <Widget>[
             logoview,
@@ -776,8 +786,38 @@ class HomeNavBarView extends PreferredSize {
           ],
         ),
         height: 80,
+      ) 
+    ); 
+
+    //================
+    // final Brightness brightness = widget.brightness
+    //   ?? appBarTheme.brightness
+    //   ?? themeData.primaryColorBrightness;
+    final AppBarTheme appBarTheme = AppBarTheme.of(context);
+
+    final Brightness brightness = appBarTheme.brightness;
+
+    final SystemUiOverlayStyle overlayStyle = brightness == Brightness.dark
+      ? SystemUiOverlayStyle.light
+      : SystemUiOverlayStyle.dark;
+
+    return Semantics(
+      container: true,
+      child: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: overlayStyle,
+        child: Material(
+          color: appBarTheme.color,
+          elevation: 0,
+          // shape: widget.shape,
+          child: Semantics(
+            explicitChildNodes: true,
+            child: navView,
+          ),
+        ),
       ),
     );
+
+    //============
   }
 
   @override

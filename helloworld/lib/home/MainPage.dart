@@ -30,6 +30,8 @@ import '../plugin/wave_progress_demo.dart';
 import '../Webview/WebViewDemo.dart';
 import '../shoppingcart/ShoppingCartVC.dart';
 
+import './mall/MallVC.dart';
+
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -67,6 +69,8 @@ class MainPage extends StatelessWidget {
         "/WebViewDemo": (BuildContext context) => new WebViewDemo(),
 
         "/ShoppingCartVC": (BuildContext context) => new ShoppingCartVC(),
+
+        "/MallVC": (BuildContext context) => new MallVC(),
   
   
         },

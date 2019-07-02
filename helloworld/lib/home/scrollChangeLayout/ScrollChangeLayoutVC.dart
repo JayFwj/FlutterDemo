@@ -28,7 +28,7 @@ class ScrollChangeLayoutVCState extends State<ScrollChangeLayoutVC> {
 
      _scrollController.addListener(() {
       double offset = _scrollController.offset;
-      print("Scroll Offset ==>$offset");
+      //print("Scroll Offset ==>$offset");
 
       setState(() {
         this.offset = offset;
