@@ -31,6 +31,7 @@ import '../Webview/WebViewDemo.dart';
 import '../shoppingcart/ShoppingCartVC.dart';
 
 import './mall/MallVC.dart';
+import 'mall/detail/MallProductDetail.dart';
 
 class MainPage extends StatelessWidget {
   @override
@@ -71,6 +72,7 @@ class MainPage extends StatelessWidget {
         "/ShoppingCartVC": (BuildContext context) => new ShoppingCartVC(),
 
         "/MallVC": (BuildContext context) => new MallVC(),
+        "/MallProductDetail": (BuildContext context) => new MallProductDetail(),
   
   
         },

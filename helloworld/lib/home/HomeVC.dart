@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import './SelectionScreen.dart';
@@ -225,27 +226,61 @@ class HomeADViewState extends State<HomeADView> {
     );
   }
 
+ 
+
   _buildPageView() {
-    return Container(
-      color: Colors.black87,
-      height: _boxHeight,
-      child: PageView.builder(
-          itemCount: widget.items.length,
-          controller: _pageController,
-          itemBuilder: (BuildContext context, int index) {
-            return Center(
-              child: CachedNetworkImage(
-                imageUrl: widget.items[index].image,
+
+     List<Widget> banners = List<Widget>();
+  for(var item in widget.items) {
+
+    banners.add(Container(
+      child: 
+    ClipRRect( child: 
+    CachedNetworkImage(
+                imageUrl: item.image,
                 placeholder: (context, url) => new CircularProgressIndicator(),
                 errorWidget: (context, url, error) => new Icon(Icons.error),
-                width: MediaQuery.of(context).size.width,
+                // width: MediaQuery.of(context).size.width,
                 fit: BoxFit.fill,
               ),
-            );
-          },
-          onPageChanged: (int index) {
-            _currentPageNotifier.value = index;
-          }),
+              borderRadius: BorderRadius.all(Radius.circular(5))
+    ,),
+    // color: Colors.green,
+    margin: EdgeInsets.only(left: 5, right: 5),
+    width: MediaQuery.of(context).size.width
+    )
+    );
+  } 
+
+  CarouselSlider slider = CarouselSlider(
+  height: _boxHeight,
+   items: banners, 
+   viewportFraction: 0.9,
+   enlargeCenterPage: true,
+   );
+
+    return Container(
+      width:MediaQuery.of(context).size.width ,
+      // color: Colors.orange,
+      height: _boxHeight,
+      child:slider
+      //  PageView.builder(
+      //     itemCount: widget.items.length,
+      //     controller: _pageController,
+      //     itemBuilder: (BuildContext context, int index) {
+      //       return Center(
+      //         child: CachedNetworkImage(
+      //           imageUrl: widget.items[index].image,
+      //           placeholder: (context, url) => new CircularProgressIndicator(),
+      //           errorWidget: (context, url, error) => new Icon(Icons.error),
+      //           width: MediaQuery.of(context).size.width,
+      //           fit: BoxFit.fill,
+      //         ),
+      //       );
+      //     },
+      //     onPageChanged: (int index) {
+      //       _currentPageNotifier.value = index;
+      //     }),
     );
   }
 
