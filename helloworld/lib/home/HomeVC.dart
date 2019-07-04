@@ -132,7 +132,10 @@ class HomeScreenState extends State<HomeScreen> {
     var overlayView = GestureDetector(
       onTap: () {
         // Navigator.pushNamed(context, "/TouchMoveView");
-        Navigator.pushNamed(context, "/FilterVC");
+        //Navigator.pushNamed(context, "/FilterVC");
+        // Navigator.pushNamed(context, "/FadeinAnimVC");
+        Navigator.pushNamed(context, "/LoadingProgressVC");
+        
       },
       child: Container(
         color: Colors.orange,
@@ -151,6 +154,7 @@ class HomeScreenState extends State<HomeScreen> {
         child: Stack(
           children: <Widget>[
             refreshListView,
+            overlayView
           ],
         ),
       ),

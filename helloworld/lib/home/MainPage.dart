@@ -1,5 +1,8 @@
+import 'package:Flutter/me/MeVC.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'Animation/FadeinAnimVC.dart';
+import 'Animation/LoadingProgressVC.dart';
 import 'HomeVC.dart';
 import 'MsgPage.dart';
 import '../Form/LoginVC.dart';
@@ -73,8 +76,9 @@ class MainPage extends StatelessWidget {
 
         "/MallVC": (BuildContext context) => new MallVC(),
         "/MallProductDetail": (BuildContext context) => new MallProductDetail(),
-  
-  
+        "/FadeinAnimVC": (BuildContext context) => new FadeinAnimVC(),
+        "/LoadingProgressVC": (BuildContext context) => new LoadingProgressVC(),
+        
         },
         home: new MainPageWidget()); 
   }
@@ -162,7 +166,7 @@ class MainPageState extends State<MainPageWidget> {
         new HomeScreen(),
       new SessionListVC(),
       new ShoppingCartVC(),
-      new MsgPage()
+      new MeScreen()
       ],index: _tabIndex,),
       bottomNavigationBar: new BottomNavigationBar(
         items: <BottomNavigationBarItem>[
