@@ -47,6 +47,7 @@ dependencies:
   event_bus: ^1.1.0
   keyboard_visibility: ^0.5.6
   flutter_swiper : ^1.1.6
+  flutter_staggered_grid_view: "^0.2.7"
   
 dev_dependencies: 
   flutter_test:   

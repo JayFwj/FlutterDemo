@@ -11,10 +11,7 @@ class MallPDBottomView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-
     
-
     Container container = Container(
       color: Color(0xff139ef6),
       height: 45,
