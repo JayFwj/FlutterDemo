@@ -134,7 +134,7 @@ class HomeScreenState extends State<HomeScreen> {
         // Navigator.pushNamed(context, "/TouchMoveView");
         //Navigator.pushNamed(context, "/FilterVC");
         // Navigator.pushNamed(context, "/FadeinAnimVC");
-        Navigator.pushNamed(context, "/LoadingProgressVC");
+        // Navigator.pushNamed(context, "/LoadingProgressVC");
         
       },
       child: Container(
@@ -368,8 +368,9 @@ class IndustryRowView extends StatelessWidget {
             onTap: () {
               //Scaffold.of(context).showSnackBar(SnackBar(content: Text("Tap me!"),));
               // _navigateAndDisplaySelection(context);
-              Navigator.pushNamed(context, "/SocketVC");
+             // Navigator.pushNamed(context, "/SocketVC");
               // Navigator.pushNamed(context, "/ScrollChangeLayoutVC");
+              Navigator.pushNamed(context, "/MallProductDetail");
             },
             child: ButtonItemView("家电", "images/home/jiadian.png", titleColor),
           ),

@@ -1,4 +1,6 @@
+import 'package:Flutter/API/HKAPI.dart';
 import 'package:Flutter/API/Home/HomeModel.dart';
+import 'package:Flutter/API/mall/MallDataModel.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +8,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 class MallHeadView extends StatefulWidget {
-  HomeBrandDataItem brandModel;
+  MallDataModel brandModel;
   int selectedIndex = 0;
   int subselectedIndex = 0; 
 
@@ -57,7 +59,7 @@ class _MallHeadViewState extends State<MallHeadView> {
           logoView,
           brandNameLbl,
           Container(
-            child: MallHeadMenuView(widget.selectedIndex,widget.subselectedIndex),
+            child: MallHeadMenuView(widget.selectedIndex,widget.subselectedIndex, widget.brandModel.rpc),
             margin: EdgeInsets.only(top: 30),
           )
         ],
@@ -73,16 +75,21 @@ enum MallHeaderMenuEvenType{
 class MallHeaderMenuEvenModel{
   MallHeaderMenuEvenType type;
   int selectedIndex;
-  MallHeaderMenuEvenModel(this.type, this.selectedIndex);
+
+  String cateID;
+  String subcateID;
+
+  MallHeaderMenuEvenModel(this.type, this.selectedIndex,{this.cateID, this.subcateID});
 }
 
 class MallHeadMenuView extends StatefulWidget {
   static EventBus eventBus = EventBus();
   int selectedIndex = 0;
   int subselectedIndex = 0;
+  List<MallDataRpcModel> menus = List<MallDataRpcModel>();
 
-  MallHeadMenuView(this.selectedIndex, this.subselectedIndex);
-
+  MallHeadMenuView(this.selectedIndex, this.subselectedIndex, this.menus);
+ 
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -92,67 +99,85 @@ class MallHeadMenuView extends StatefulWidget {
 
 class _MallHeadMenuViewState extends State<MallHeadMenuView> {
   
-  List<String> menus = List<String>();
-  List<String> submenus = List<String>();
-
+  List<MallDataRpcModel> submenus = List<MallDataRpcModel>();
+  
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    menus.add("官网商场");
-    menus.add("普通商品");
-    menus.add("服务次卡");
-    menus.add("延保卡");
-    menus.add("空调");
+    // menus.add("官网商场");
+    // menus.add("普通商品");
+    // menus.add("服务次卡");
+    // menus.add("延保卡");
+    // menus.add("空调");
 
     setStaicDynamicData();
 
     MallHeadMenuView.eventBus.on<MallHeaderMenuEvenModel>().listen((data){
+         if(this.mounted == false ){
+          return;
+        }
         if(data.type == MallHeaderMenuEvenType.menu){
           this.widget.selectedIndex = data.selectedIndex;
           this.widget.subselectedIndex = 0;
           setStaicDynamicData();
         }else{
           this.widget.subselectedIndex = data.selectedIndex;
+          setState(() {});
         }
-        setState(() {});
     });
     
   }
 
-  setStaicDynamicData(){
-    submenus = List<String>();
-    if(this.widget.selectedIndex == 1){
-      submenus.add("衣服");
-    submenus.add("鞋子");
-    submenus.add("帽子");
-    submenus.add("皮带");
-    submenus.add("女装");
-    
-    }else if(this.widget.selectedIndex == 2){
-      submenus.add("汽车清洗次卡");
-    submenus.add("空调清洗次卡");
-    submenus.add("汽车清洗次卡2");
-    submenus.add("空调清洗次卡2");
-    }else{
-       submenus.add("冰箱111");
-    submenus.add("洗衣机22");
-    submenus.add("电视机33");
-    submenus.add("电脑44");
-    submenus.add("空调55");
+  Future<void>loadSubmenu() async{
+    if(this.mounted == false){
+      return;
     }
+    if(widget.selectedIndex == 0){
+      submenus = [];
+      return;
+    }
+    
+     this.submenus = await HKAPI.shaderInstance.mallSubmenut(widget.menus[widget.selectedIndex].id);
+    setState(() {});
+  }
+
+  setStaicDynamicData(){
+
+    loadSubmenu();
+
+    // submenus = List<String>();
+    // if(this.widget.selectedIndex == 1){
+    //   submenus.add("衣服");
+    // submenus.add("鞋子");
+    // submenus.add("帽子");
+    // submenus.add("皮带");
+    // submenus.add("女装");
+    
+    // }else if(this.widget.selectedIndex == 2){
+    //   submenus.add("汽车清洗次卡");
+    // submenus.add("空调清洗次卡");
+    // submenus.add("汽车清洗次卡2");
+    // submenus.add("空调清洗次卡2");
+    // }else{
+    //    submenus.add("冰箱111");
+    // submenus.add("洗衣机22");
+    // submenus.add("电视机33");
+    // submenus.add("电脑44");
+    // submenus.add("空调55");
+    // }
   }
 
   @override
   Widget build(BuildContext context) {
     var firstMenuRow = ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: menus.length,
+        itemCount:widget.menus.length,
         itemBuilder: (context, index) {
           return InkWell(
-            child: this.cateMenuItem(menus[index], index == this.widget.selectedIndex),
+            child: this.cateMenuItem(widget.menus[index].name, index == this.widget.selectedIndex),
             onTap: () { 
-              MallHeadMenuView.eventBus.fire(MallHeaderMenuEvenModel(MallHeaderMenuEvenType.menu, index));
+              MallHeadMenuView.eventBus.fire(MallHeaderMenuEvenModel(MallHeaderMenuEvenType.menu, index,cateID: widget.menus[index].id));
             
             },
           );
@@ -183,10 +208,10 @@ class _MallHeadMenuViewState extends State<MallHeadMenuView> {
           itemBuilder: (context, index) {
             return InkWell(
               child: this
-                  .subcateMenuItem(submenus[index], index == this.widget.subselectedIndex),
+                  .subcateMenuItem(submenus[index].name, index == this.widget.subselectedIndex),
               onTap: () {
                 // subselectedIndex = index;
-                MallHeadMenuView.eventBus.fire(MallHeaderMenuEvenModel(MallHeaderMenuEvenType.submenu, index));
+                MallHeadMenuView.eventBus.fire(MallHeaderMenuEvenModel(MallHeaderMenuEvenType.submenu, index, cateID: widget.menus[widget.selectedIndex].id, subcateID: submenus[index].id));
                 // setState(() {});
               },
             );
