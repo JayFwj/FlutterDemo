@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:Flutter/home/mall/detail/MallPDBottomView.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -24,9 +26,21 @@ class MallPDChooseSpecView extends StatefulWidget{
 }
 
 class _MallPDChooseSpecViewState extends State<MallPDChooseSpecView>{
+  bool visible = false;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    new Timer(Duration(milliseconds:50), (){
+      visible = true;
+      setState(() {
+      });
+    });
+  }
   @override
   Widget build(BuildContext context) {
-    return Container(child: Stack(children: <Widget>[
+    return Container(
+      child: Stack(children: <Widget>[
        Opacity(child:InkWell(child: Container(color: Colors.black,), onTap: (){widget.dismissCallback();},),  opacity: 0.2,),
       Positioned(child: bodyView(), bottom: 0, left: 0, right: 0,)
     ],),);
@@ -72,12 +86,24 @@ class _MallPDChooseSpecViewState extends State<MallPDChooseSpecView>{
 
     var listview = ListView(children: views,);
 
-    return Container(color: Colors.white,
+// AnimatedOpacity(
+//           // If the widget is visible, animate to 0.0 (invisible).
+//           // If the widget is hidden, animate to 1.0 (fully visible).
+//           opacity: _visible ? 1.0 : 0.0,
+//           duration: Duration(milliseconds: 500),
+//           // The green box must be a child of the AnimatedOpacity widget.
+//           child: Container(
+//             width: 200.0,
+//             height: 200.0,
+//             color: Colors.green,
+//           ), 
+
+    return AnimatedOpacity(child: Container(color: Colors.white,
     constraints: BoxConstraints(maxHeight: 460),
     child: Stack(children: <Widget>[
         Positioned(child: listview, top: 0, left: 0, right: 0 , bottom: 45,),
         Positioned(child: MallPDBottomView(widget.addCartCallback, widget.buyNowCallback),left: 0, right: 0, bottom: 0,)
-    ],),);
+    ],),),duration: Duration(milliseconds: 300),opacity: visible ? 1.0 : 0.0,);
   }
 
 

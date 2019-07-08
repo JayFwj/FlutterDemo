@@ -38,15 +38,43 @@ class MallPDBottomView extends StatelessWidget {
 }
 
 class MallPDBodyView extends StatelessWidget {
+
+  ValueChanged<int> navAlphChangedCallback;
+  VoidCallback switchToNextPageCallback; 
+
+  MallPDBodyView(this.switchToNextPageCallback, this.navAlphChangedCallback);
+  ScrollController scrollController = ScrollController();
+  ListView listView;
+  bool moveToSecondPage = false;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+
+    scrollController.addListener((){
+
+      double maxExtent = scrollController.position.maxScrollExtent;
+      double offset = scrollController.offset;
+
+      int alpha = (offset <= maxExtent) ? ((offset < 0 ? 0 : offset) / maxExtent * 255).toInt() : 255;
+      this.navAlphChangedCallback(alpha);
+
+      print("f page = $maxExtent, $offset");
+
+      if(offset > (maxExtent + 40)){
+
+        moveToSecondPage = true;
+      }else{
+        moveToSecondPage = false;
+      }
+    });
+
     Column column = Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         topView(),
         specificationView(),
         commentView(),
+        hintToLoadDetail(),
       ],
     );
 
@@ -55,12 +83,37 @@ class MallPDBodyView extends StatelessWidget {
       child: column,
     );
 
-    return ListView.builder(
+    listView =   ListView.builder(
+      controller: scrollController,
       itemCount: 1,
       itemBuilder: (context, index) {
         return container;
       },
     );
+
+    var view = NotificationListener<ScrollUpdateNotification>(child: listView, onNotification: (notification){
+
+      if(notification.dragDetails == null && moveToSecondPage == true){
+          moveToSecondPage = false;
+          this.switchToNextPageCallback();
+      }
+      return false;
+    },);  
+    return view;
+  }
+
+  Widget hintToLoadDetail(){
+
+    Image icon = Image.asset("images/mall/shang-la.png");
+    Text txt = Text("上拉查看商品详情");
+    Row row = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+      icon,
+      Container(child: txt, margin: EdgeInsets.only(left: 3),)
+    ],);
+
+    return Container(child: row, color: Colors.white, height: 44,margin: EdgeInsets.only(top: 10),);
   }
 
   Widget topView() {
@@ -168,7 +221,6 @@ class MallPDBodyView extends StatelessWidget {
           Container(color: Colors.grey.withAlpha(50),height: 0.5,),
           specificationItemWidget("选择规格", "请选择规格"),
         ],
-
       ),
     );
   }
@@ -218,7 +270,6 @@ class MallPDBodyView extends StatelessWidget {
         ], 
       ),
     );
-
   }
 
   //MARK：规格
@@ -316,7 +367,5 @@ class CommentItemView extends StatelessWidget{
 
     ],),);
 
-  }
-
-  
+  } 
 }

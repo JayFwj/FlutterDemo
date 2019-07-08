@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'dart:math';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class PDSpecView extends StatefulWidget{
@@ -17,7 +18,7 @@ class _PDSpecViewState extends State<PDSpecView>{
   @override
   Widget build(BuildContext context) {
 
-    var specList = ["智能家居型","普通型","经济实惠型","家庭宜居型","超级搭配型"];
+    var specList = ["智能家居型","普通型","经济实惠型经济实惠型","家庭宜居型","超级搭配型","家庭宜居型","超级搭配型","家庭宜居型","超级搭配型","家庭宜居型","超级搭配型"];
     List<Widget> views = List<Widget>();
 
     for(int i=0;i<specList.length;i++){
@@ -28,36 +29,26 @@ class _PDSpecViewState extends State<PDSpecView>{
       views.add(item);
     }
 
+    var mainAxisSpaceing = 6.0;
+    var itemHeight = 31;
+    int row = (specList.length / 3).floor();
+    if(specList.length % 3 != 0){
+      row += 1;
+    } 
+    double marginTop = 15;
+    var height = (row * itemHeight + (row - 1) * mainAxisSpaceing);
+ 
     var gridView = GridView(
       physics: NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 148.0,
               childAspectRatio: 3.6,
               mainAxisSpacing: 6.0,
-              crossAxisSpacing: 6.0),
+              crossAxisSpacing: mainAxisSpaceing),
       children: 
-      views,);
-
-//     var gridView = StaggeredGridView.countBuilder(
-//   crossAxisCount: 4,
-//   itemCount: 8,
-//   itemBuilder: (BuildContext context, int index) => new Container(
-//       color: Colors.green,
-//       child: new Center(
-//         child: new CircleAvatar(
-//           backgroundColor: Colors.white,
-//           child: new Text('$index'),
-//         ),
-//       )),
-//   staggeredTileBuilder: (int index) =>
-//       new StaggeredTile.count(2, index.isEven ? 2 : 1),
-//   mainAxisSpacing: 4.0,
-//   crossAxisSpacing: 4.0,
-//   physics: NeverScrollableScrollPhysics(),
-// );
- 
-
-    return  Container(color: Colors.white, height: 320,child: gridView,margin: EdgeInsets.only(top:15, left: 15, right: 15 ),);
+      views,);  
+    return  Container(color: Colors.white, height: height,child: gridView,
+    margin: EdgeInsets.only(top:marginTop, left: 15, right: 15 ),);
 
   }
 

@@ -154,7 +154,7 @@ class HomeScreenState extends State<HomeScreen> {
         child: Stack(
           children: <Widget>[
             refreshListView,
-            overlayView
+            // overlayView
           ],
         ),
       ),
@@ -702,12 +702,16 @@ class RecommandBrandView extends StatelessWidget {
           padding: EdgeInsets.all(16),
           color: Colors.white,
           child: Center(
-            child: CachedNetworkImage(
+            child: 
+            InkWell(child: CachedNetworkImage(
               imageUrl: recItem.brandList[index].logo,
               //"https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=77d1cd475d43fbf2da2ca023807fca1e/9825bc315c6034a8ef5250cec5134954082376c9.jpg",
               errorWidget: (context, url, error) => new Icon(Icons.error),
               fit: BoxFit.fill,
-            ),
+            ),onTap: (){
+              Navigator.pushNamed(context, "/MallVC", arguments: recItem.brandList[index]);
+            },)
+            ,
           ),
         );
       }),
