@@ -1,3 +1,5 @@
+import 'package:Flutter/draw/DrawPractice.dart';
+import 'package:Flutter/draw/PathAnimation.dart';
 import 'package:Flutter/me/MeVC.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -35,6 +37,7 @@ import '../shoppingcart/ShoppingCartVC.dart';
 
 import './mall/MallVC.dart';
 import 'mall/detail/MallProductDetail.dart';
+import 'scan/ScanQRVC.dart';
 
 class MainPage extends StatelessWidget {
   @override
@@ -78,6 +81,15 @@ class MainPage extends StatelessWidget {
         "/MallProductDetail": (BuildContext context) => new MallProductDetail(),
         "/FadeinAnimVC": (BuildContext context) => new FadeinAnimVC(),
         "/LoadingProgressVC": (BuildContext context) => new LoadingProgressVC(),
+
+        "/ScanQRVC": (BuildContext context) => new ScanQRVC(),
+
+        "/DrawPractice": (BuildContext context) => new DrawPractice(),
+        "/PathAnimation": (BuildContext context) => new PathAnimation(),
+        // "/HomeDetailVC": (BuildContext context) => new HomeDetailVC(),
+
+        
+        
         
         },
         home: new MainPageWidget()); 
@@ -160,7 +172,6 @@ class MainPageState extends State<MainPageWidget> {
     initData();
     // TODO: implement build
     return Scaffold(
-
       // body: _bodys[_tabIndex],
       body: IndexedStack(children: <Widget>[
         new HomeScreen(),

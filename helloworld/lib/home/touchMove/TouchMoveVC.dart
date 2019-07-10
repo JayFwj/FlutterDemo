@@ -25,9 +25,8 @@ class TouchMoveState extends State<TouchMoveView> {
 
   @override
   Widget build(BuildContext context) {
-    return Transform.translate(
-        offset: moveOffset,
-        child: Container(
+
+    var view = Container(
           height: 10,
           width: 10,
           color: Colors.lightBlue,
@@ -50,6 +49,7 @@ class TouchMoveState extends State<TouchMoveView> {
             onPanEnd: (detail) {
               setState(() {
                 painter=TouchMovePainter();
+
                 painter.painterColor = Colors.red;
                 idleOffset=moveOffset*1;
               });
@@ -58,7 +58,11 @@ class TouchMoveState extends State<TouchMoveView> {
               painter: painter, 
             ),
           ),
-        ));
+        );
+
+    return Transform.translate(
+        offset: moveOffset,
+        child: Container(child: view , width: 300, height: 300, color: Colors.orange,) );
   }
 }
 

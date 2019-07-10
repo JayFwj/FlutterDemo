@@ -12,6 +12,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../API/HKAPI.dart';
 import '../API/Home/HomeModel.dart';
+import 'views/HomeMenuOverlayView.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -135,7 +136,6 @@ class HomeScreenState extends State<HomeScreen> {
         //Navigator.pushNamed(context, "/FilterVC");
         // Navigator.pushNamed(context, "/FadeinAnimVC");
         // Navigator.pushNamed(context, "/LoadingProgressVC");
-        
       },
       child: Container(
         color: Colors.orange,
@@ -145,16 +145,23 @@ class HomeScreenState extends State<HomeScreen> {
     );
 
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
-      systemNavigationBarColor:Colors.black,
-      statusBarColor: Colors.black));
+        systemNavigationBarColor: Colors.black, statusBarColor: Colors.black));
+
+    HomeMenuOverlayView homeMenuOverlayView = HomeMenuOverlayView();
+
     return Scaffold(
       appBar: HomeNavBarView(),
       // appBar: AppBar(title: Text("2"),brightness: Brightness.light,),
-        body: Container(
+      body: Container(
         child: Stack(
           children: <Widget>[
             refreshListView,
             // overlayView
+            Positioned(
+              child: homeMenuOverlayView,
+              right: 0,
+              top: 20,
+            ),
           ],
         ),
       ),
@@ -230,62 +237,55 @@ class HomeADViewState extends State<HomeADView> {
     );
   }
 
- 
-
   _buildPageView() {
+    List<Widget> banners = List<Widget>();
+    for (var item in widget.items) {
+      banners.add(Container(
+          child: ClipRRect(
+            child: CachedNetworkImage(
+              imageUrl: item.image,
+              placeholder: (context, url) => new CircularProgressIndicator(),
+              errorWidget: (context, url, error) => new Icon(Icons.error),
+              // width: MediaQuery.of(context).size.width,
+              fit: BoxFit.fill,
+            ),
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+          ),
+          // color: Colors.green,
+          margin: EdgeInsets.only(left: 5, right: 5),
+          width: MediaQuery.of(context).size.width));
+    }
 
-     List<Widget> banners = List<Widget>();
-  for(var item in widget.items) {
-
-    banners.add(Container(
-      child: 
-    ClipRRect( child: 
-    CachedNetworkImage(
-                imageUrl: item.image,
-                placeholder: (context, url) => new CircularProgressIndicator(),
-                errorWidget: (context, url, error) => new Icon(Icons.error),
-                // width: MediaQuery.of(context).size.width,
-                fit: BoxFit.fill,
-              ),
-              borderRadius: BorderRadius.all(Radius.circular(5))
-    ,),
-    // color: Colors.green,
-    margin: EdgeInsets.only(left: 5, right: 5),
-    width: MediaQuery.of(context).size.width
-    )
+    CarouselSlider slider = CarouselSlider(
+      height: _boxHeight,
+      items: banners,
+      viewportFraction: 0.9,
+      enlargeCenterPage: true,
     );
-  } 
-
-  CarouselSlider slider = CarouselSlider(
-  height: _boxHeight,
-   items: banners, 
-   viewportFraction: 0.9,
-   enlargeCenterPage: true,
-   );
 
     return Container(
-      width:MediaQuery.of(context).size.width ,
-      // color: Colors.orange,
-      height: _boxHeight,
-      child:slider
-      //  PageView.builder(
-      //     itemCount: widget.items.length,
-      //     controller: _pageController,
-      //     itemBuilder: (BuildContext context, int index) {
-      //       return Center(
-      //         child: CachedNetworkImage(
-      //           imageUrl: widget.items[index].image,
-      //           placeholder: (context, url) => new CircularProgressIndicator(),
-      //           errorWidget: (context, url, error) => new Icon(Icons.error),
-      //           width: MediaQuery.of(context).size.width,
-      //           fit: BoxFit.fill,
-      //         ),
-      //       );
-      //     },
-      //     onPageChanged: (int index) {
-      //       _currentPageNotifier.value = index;
-      //     }),
-    );
+        width: MediaQuery.of(context).size.width,
+        // color: Colors.orange,
+        height: _boxHeight,
+        child: slider
+        //  PageView.builder(
+        //     itemCount: widget.items.length,
+        //     controller: _pageController,
+        //     itemBuilder: (BuildContext context, int index) {
+        //       return Center(
+        //         child: CachedNetworkImage(
+        //           imageUrl: widget.items[index].image,
+        //           placeholder: (context, url) => new CircularProgressIndicator(),
+        //           errorWidget: (context, url, error) => new Icon(Icons.error),
+        //           width: MediaQuery.of(context).size.width,
+        //           fit: BoxFit.fill,
+        //         ),
+        //       );
+        //     },
+        //     onPageChanged: (int index) {
+        //       _currentPageNotifier.value = index;
+        //     }),
+        );
   }
 
   _buildCircleIndicator() {
@@ -368,7 +368,7 @@ class IndustryRowView extends StatelessWidget {
             onTap: () {
               //Scaffold.of(context).showSnackBar(SnackBar(content: Text("Tap me!"),));
               // _navigateAndDisplaySelection(context);
-             // Navigator.pushNamed(context, "/SocketVC");
+              // Navigator.pushNamed(context, "/SocketVC");
               // Navigator.pushNamed(context, "/ScrollChangeLayoutVC");
               Navigator.pushNamed(context, "/MallProductDetail");
             },
@@ -547,13 +547,16 @@ class BrandItemView extends StatelessWidget {
 
 //    var logoView = Image.asset("images/lake.jpg", width: 80, height: 80,fit: BoxFit.fitWidth,);
 
-    var logoView = CachedNetworkImage(
-      imageUrl: dataItem.logo,
-      //"https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=77d1cd475d43fbf2da2ca023807fca1e/9825bc315c6034a8ef5250cec5134954082376c9.jpg",
-      placeholder: (context, url) => new CircularProgressIndicator(),
-      errorWidget: (context, url, error) => new Icon(Icons.error),
-      width: MediaQuery.of(context).size.width,
-      fit: BoxFit.fill,
+    var logoView = Hero(
+      child: CachedNetworkImage(
+        imageUrl: dataItem.logo,
+        //"https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=77d1cd475d43fbf2da2ca023807fca1e/9825bc315c6034a8ef5250cec5134954082376c9.jpg",
+        placeholder: (context, url) => new CircularProgressIndicator(),
+        errorWidget: (context, url, error) => new Icon(Icons.error),
+        width: MediaQuery.of(context).size.width,
+        fit: BoxFit.fill,
+      ),
+      tag: dataItem.id,
     );
 
     return Container(
@@ -571,7 +574,16 @@ class BrandItemView extends StatelessWidget {
               Container(
                 padding: EdgeInsets.all(20),
                 margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                child: logoView,
+                child: InkWell(
+                  child: logoView,
+                  onTap: () {
+                    Navigator.of(context).push(new PageRouteBuilder(
+                        opaque: false,
+                        pageBuilder: (BuildContext context, _, __) {
+                          return HomeDetailVC(this.dataItem);
+                        }));
+                  },
+                ),
                 width: 110,
               ),
               new Container(
@@ -610,9 +622,8 @@ class BrandItemView extends StatelessWidget {
                       new GestureDetector(
                           onTap: () {
                             // Navigator.pushNamed(context, "/animation");
-                            Navigator.pushNamed(context, "/MallVC", arguments: dataItem);
-
-
+                            Navigator.pushNamed(context, "/MallVC",
+                                arguments: dataItem);
 
                             //Scaffold.of(context).showSnackBar(SnackBar(content: Text("官网商场")));
                           },
@@ -702,16 +713,18 @@ class RecommandBrandView extends StatelessWidget {
           padding: EdgeInsets.all(16),
           color: Colors.white,
           child: Center(
-            child: 
-            InkWell(child: CachedNetworkImage(
-              imageUrl: recItem.brandList[index].logo,
-              //"https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=77d1cd475d43fbf2da2ca023807fca1e/9825bc315c6034a8ef5250cec5134954082376c9.jpg",
-              errorWidget: (context, url, error) => new Icon(Icons.error),
-              fit: BoxFit.fill,
-            ),onTap: (){
-              Navigator.pushNamed(context, "/MallVC", arguments: recItem.brandList[index]);
-            },)
-            ,
+            child: InkWell(
+              child: CachedNetworkImage(
+                imageUrl: recItem.brandList[index].logo,
+                //"https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=77d1cd475d43fbf2da2ca023807fca1e/9825bc315c6034a8ef5250cec5134954082376c9.jpg",
+                errorWidget: (context, url, error) => new Icon(Icons.error),
+                fit: BoxFit.fill,
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, "/MallVC",
+                    arguments: recItem.brandList[index]);
+              },
+            ),
           ),
         );
       }),
@@ -762,7 +775,7 @@ class SelectionButton extends StatelessWidget {
   }
 }
 
-//MARK:导航栏 
+//MARK:导航栏
 class HomeNavBarView extends PreferredSize {
   @override
   Widget build(BuildContext context) {
@@ -790,37 +803,34 @@ class HomeNavBarView extends PreferredSize {
         ),
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(color: Colors.blue.withAlpha(100), width: 0.5),
-        borderRadius: BorderRadius.all(Radius.circular(17.5)),
-        boxShadow: [
-         // BoxShadow(offset: Offset(0,0), blurRadius: 2,spreadRadius: 0)
-        ]
-      ),
+          color: Colors.white,
+          border: Border.all(color: Colors.blue.withAlpha(100), width: 0.5),
+          borderRadius: BorderRadius.all(Radius.circular(17.5)),
+          boxShadow: [
+            // BoxShadow(offset: Offset(0,0), blurRadius: 2,spreadRadius: 0)
+          ]),
       margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
     );
-      
-   var navView = SafeArea(
-      top: true,
-      child: 
-       Container(
-        child: Row(
-          children: <Widget>[
-            logoview,
-            Flexible(
-              child: searchContainer,
-            )
-          ],
-        ),
-        height: 80,
-      ) 
-    ); 
- 
-    final AppBarTheme appBarTheme = AppBarTheme.of(context); 
-    final Brightness brightness = appBarTheme.brightness; 
+
+    var navView = SafeArea(
+        top: true,
+        child: Container(
+          child: Row(
+            children: <Widget>[
+              logoview,
+              Flexible(
+                child: searchContainer,
+              )
+            ],
+          ),
+          height: 80,
+        ));
+
+    final AppBarTheme appBarTheme = AppBarTheme.of(context);
+    final Brightness brightness = appBarTheme.brightness;
     final SystemUiOverlayStyle overlayStyle = brightness == Brightness.dark
-      ? SystemUiOverlayStyle.light
-      : SystemUiOverlayStyle.dark;
+        ? SystemUiOverlayStyle.light
+        : SystemUiOverlayStyle.dark;
 
     return Semantics(
       container: true,
@@ -844,4 +854,33 @@ class HomeNavBarView extends PreferredSize {
   @override
   // TODO: implement preferredSize
   Size get preferredSize => AppBar().preferredSize;
+}
+
+class HomeDetailVC extends StatelessWidget {
+  HomeBrandDataItem dataItem;
+
+  HomeDetailVC(this.dataItem);
+  @override
+  Widget build(BuildContext context) {
+    return new Material(
+        color: Colors.transparent,
+        child: new Container(
+          padding: const EdgeInsets.all(30.0),
+          child: new InkWell(
+            child: new Hero(
+              child: CachedNetworkImage(
+                imageUrl: dataItem.logo,
+                placeholder: (context, url) => new CircularProgressIndicator(),
+                errorWidget: (context, url, error) => new Icon(Icons.error),
+                width: MediaQuery.of(context).size.width,
+                fit: BoxFit.fill,
+              ),
+              tag: dataItem.id,
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+        ));
+  }
 }

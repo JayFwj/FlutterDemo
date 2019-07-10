@@ -1,16 +1,16 @@
+import 'package:Flutter/home/views/RotateWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:intl/date_symbol_data_local.dart';
-
 import 'dart:io';
 import 'dart:async';
+import 'dart:math' show pi;
 import 'package:flutter_sound/flutter_sound.dart';
-
-
 import 'package:location/location.dart';
 
+import 'FlipWidget.dart';
+
 //得到当前位置
- 
 class RecordVC extends StatefulWidget {
   @override
   _MyAppState createState() => new _MyAppState();
@@ -31,7 +31,6 @@ class _MyAppState extends State<RecordVC> {
   double slider_current_position = 0.0;
   double max_duration = 1.0;
 
-
   @override
   void initState() {
     super.initState();
@@ -46,11 +45,7 @@ class _MyAppState extends State<RecordVC> {
 
   getLocation() async{
     LocationData currentLocation;
-
     var location = new Location();
-
-    // Platform messages may fail, so we use a try/catch PlatformException.
-   
     currentLocation = (await location.getLocation());
  
     print(currentLocation.latitude);
@@ -59,9 +54,7 @@ class _MyAppState extends State<RecordVC> {
     location.onLocationChanged().listen((LocationData currentLocation) {
       print(currentLocation.latitude);
       print(currentLocation.longitude);
-    });
-
-    
+    }); 
   }
 
   void startRecorder() async{
@@ -127,8 +120,6 @@ class _MyAppState extends State<RecordVC> {
         if (e != null) {
           slider_current_position = e.currentPosition;
           max_duration = e.duration;
-
-
           DateTime date = new DateTime.fromMillisecondsSinceEpoch(
               e.currentPosition.toInt(),
               isUtc: true);
@@ -178,8 +169,7 @@ class _MyAppState extends State<RecordVC> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return     Scaffold(
         appBar: AppBar(
           title: const Text('Flutter Sound'),
         ),
@@ -312,10 +302,12 @@ class _MyAppState extends State<RecordVC> {
                 },
                 divisions: max_duration.toInt()
               )
-            )
+            ),
+            SplashScreen(),
           ],
         ),
-      ),
-    );
+      );
   }
+ 
 }
+   

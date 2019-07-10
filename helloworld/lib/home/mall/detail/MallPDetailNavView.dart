@@ -60,7 +60,7 @@ class MallPDetailNavBarView extends PreferredSize {
   share() async {
     File f =
     await ImagePicker.pickImage(source: ImageSource.gallery);
-ShareExtend.share(f.path, "image");
+    ShareExtend.share(f.path, "image");
   }
 
   @override
