@@ -1,6 +1,10 @@
+import 'package:Flutter/Form/addrManage/AddrManageListVC.dart';
+import 'package:Flutter/Form/doorInstall/DoorInstallVC.dart';
 import 'package:Flutter/draw/DrawPractice.dart';
 import 'package:Flutter/draw/PathAnimation.dart';
 import 'package:Flutter/me/MeVC.dart';
+import 'package:Flutter/silver/SilverListVC.dart';
+import 'package:Flutter/transform/TransformVC.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'Animation/FadeinAnimVC.dart';
@@ -86,10 +90,12 @@ class MainPage extends StatelessWidget {
 
         "/DrawPractice": (BuildContext context) => new DrawPractice(),
         "/PathAnimation": (BuildContext context) => new PathAnimation(),
-        // "/HomeDetailVC": (BuildContext context) => new HomeDetailVC(),
 
+        "/SilverListVC": (BuildContext context) => new SilverListVC(),
+        "/TransformVC": (BuildContext context) => new TransformVC(),
+        "/DoorInstallVC": (BuildContext context) => new DoorInstallVC(),
         
-        
+        "/AddrManageListVC": (BuildContext context) => new AddrManageListVC(),
         
         },
         home: new MainPageWidget()); 

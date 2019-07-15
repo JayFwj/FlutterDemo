@@ -25,9 +25,20 @@ class _HomeMenuOverlayViewState extends State<HomeMenuOverlayView> with SingleTi
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    double width = expanded ? 100 : 44;
-    double height = expanded ? 168 : 44;
     double itemHeight = 36;
+
+    List<Widget> views = [HomeMenuItemView("images/home/diannao.png", "录声音", itemHeight,0,this.dismissCallback),
+          HomeMenuItemView("images/home/jiaju.png", "移动", itemHeight,1,this.dismissCallback),
+          HomeMenuItemView("images/home/shouji.png", "绘制", itemHeight,2,this.dismissCallback),
+          HomeMenuItemView("images/home/shuma.png", "路径动画", itemHeight,3,this.dismissCallback),
+          HomeMenuItemView("images/home/shuma.png", "Silver", itemHeight,4,this.dismissCallback),
+          HomeMenuItemView("images/home/shuma.png", "Trans", itemHeight,5,this.dismissCallback),
+          HomeMenuItemView("images/home/shuma.png", "上门安装", itemHeight,6,this.dismissCallback),
+          ];
+
+    double width = expanded ? 130 : 44;
+    double height = expanded ? (itemHeight * views.length + 6 * views.length) : 44;
+    
 
     var menuView = Container(
       decoration: BoxDecoration(
@@ -36,12 +47,7 @@ class _HomeMenuOverlayViewState extends State<HomeMenuOverlayView> with SingleTi
               bottomLeft: Radius.circular(14), topLeft: Radius.circular(14))),
       padding: EdgeInsets.only(top: 12, left: 5, bottom: 12),
       child: Column(
-        children: <Widget>[
-          HomeMenuItemView("images/home/diannao.png", "录声音", itemHeight,0,this.dismissCallback),
-          HomeMenuItemView("images/home/jiaju.png", "移动", itemHeight,1,this.dismissCallback),
-          HomeMenuItemView("images/home/shouji.png", "绘制", itemHeight,2,this.dismissCallback),
-          HomeMenuItemView("images/home/shuma.png", "路径动画", itemHeight,3,this.dismissCallback),
-        ],
+        children:views,
       ),
     );
 
@@ -142,9 +148,20 @@ class HomeMenuItemView extends StatelessWidget {
         Navigator.of(context).pushNamed("/PathAnimation");
       }else if(this.id == 1){
         Navigator.of(context).pushNamed("/TouchMoveView");
-      }else{
+      }else if(this.id == 2){
         Navigator.of(context).pushNamed("/DrawPractice");
+
+      }else if(this.id == 4){
+        Navigator.of(context).pushNamed("/SilverListVC");
+      
+      }else if(this.id == 5){
+        Navigator.of(context).pushNamed("/TransformVC");
+      
+      }else if(this.id == 6){
+        Navigator.of(context).pushNamed("/DoorInstallVC");
       }
+
+      
 
       this.dismissCallback();
     },

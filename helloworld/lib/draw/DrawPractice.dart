@@ -127,6 +127,8 @@ class DrawLinePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+
+    
     // TODO: implement paint
     switch (this.drawType) {
       case DrawType.line:
@@ -300,6 +302,9 @@ class DrawLinePainter extends CustomPainter {
     path.lineTo(200, 250);
     path.lineTo(300, 280);
     path.lineTo(250, 100);
+
+    canvas.drawShadow(path, Colors.black, 13, true);
+
     canvas.drawPath(path, _paint);
   }
 
