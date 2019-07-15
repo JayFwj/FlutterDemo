@@ -19,7 +19,7 @@ class _AddrManageListVCState extends State<AddrManageListVC>{
   void initState() {
     // TODO: implement initState
     super.initState();
-    widget.lastSelectedAddrModel = ModalRoute.of(context).settings.arguments;
+   // widget.lastSelectedAddrModel = ModalRoute.of(context).settings.arguments;
   }
 
   @override

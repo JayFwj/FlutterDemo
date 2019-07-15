@@ -1,3 +1,4 @@
+import 'package:Flutter/Form/addrManage/AddrManageListVC.dart';
 import 'package:Flutter/Form/addrManage/AddrModel.dart';
 import 'package:Flutter/Form/dialog/DIDateDialogView.dart';
 import 'package:flutter/cupertino.dart';
@@ -121,8 +122,13 @@ class _DoorInstallVCState extends State<DoorInstallVC> {
   }
 
   addrManageAction() async {
-    this.lastSelectedAddrModel = await Navigator.of(context).pushNamed("/AddrManageListVC",
-          arguments: this.lastSelectedAddrModel);
+    // this.lastSelectedAddrModel = await Navigator.of(context).pushNamed("/AddrManageListVC",
+    //       arguments: this.lastSelectedAddrModel);
+
+      this.lastSelectedAddrModel = await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => AddrManageListVC()),
+    );
     setState(() {});
   }
 

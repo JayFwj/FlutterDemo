@@ -104,8 +104,10 @@ class _DIBasicAddrItemViewState extends State<DIBasicAddrItemView>{
     if(widget.addrModel == null){
       return emptyView;
     }else{
-      return ListTile(title: Text(widget.addrModel.name + " " + widget.addrModel.phone),
-      subtitle: Text(widget.addrModel.addr),
+      return ListTile(title: Text(widget.addrModel.name + " " + widget.addrModel.phone,
+      style: TextStyle(color: Color(0xff666666),fontSize: 14),),
+      subtitle: Text(widget.addrModel.addr,
+      style: TextStyle(color: Color(0xff999999),fontSize: 12)),
       trailing: indicatorView,
       );
     }
