@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class DIBasicQuesItem extends StatelessWidget{
+  DIBasicFormView basicFormView;
   @override
   Widget build(BuildContext context) {
+    basicFormView = DIBasicFormView();
 
-     var titleLbl = Text("问题描述", 
+    var titleLbl = Text("问题描述", 
     style: TextStyle(fontSize: 14, color: Color(0xff666666)),);
 
 
@@ -16,14 +18,22 @@ class DIBasicQuesItem extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
         Container(child: titleLbl, margin: EdgeInsets.only(top: 16),),
-        Container(child: DIBasicFormView(), height: 100,margin: EdgeInsets.only(top: 8,bottom: 10),)
+        Container(child: basicFormView, height: 100,margin: EdgeInsets.only(top: 8,bottom: 10),)
       ],)
     );
+  }
+
+  unfocus(){
+    if(basicFormView.focusNode.hasFocus){
+       basicFormView.focusNode.unfocus();
+    }
   }
 }
 
 
 class DIBasicFormView extends StatefulWidget {
+  FocusNode focusNode = FocusNode();
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -32,7 +42,7 @@ class DIBasicFormView extends StatefulWidget {
 }
 
 class _DIBasicFormViewState extends State<DIBasicFormView> {
-  FocusNode focusNode = FocusNode();
+  
   TextEditingController editingController = TextEditingController();
   int inputLen = 0;
   @override
@@ -52,12 +62,13 @@ class _DIBasicFormViewState extends State<DIBasicFormView> {
     // TODO: implement build
     EditableText editableText = EditableText(
       controller: editingController,
-      focusNode: focusNode,
+      focusNode: widget.focusNode,
       minLines: 1,
       maxLines: 5,
       style: TextStyle(color: Color(0xffc9caca), fontSize: 14),
       cursorColor: Colors.black,
       backgroundCursorColor: Colors.black,
+      
     );
 
     

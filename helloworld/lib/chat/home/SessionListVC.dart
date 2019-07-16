@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:event_bus/event_bus.dart';
+import '../../r.dart';
 import '../Socket/Model/SocketMsgObj.dart';
 import '../Socket/SocketUtil.dart';
 
@@ -109,9 +110,9 @@ class _HomeMsgNavViewState extends State<HomeMsgNavView> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          menuItem("images/msgs/huodongxiaoxi.png", "活动消息", 0, 1),
-          menuItem("images/msgs/zhaohutongzhi.png", "账户通知", 0, 0),
-          menuItem("images/msgs/fuwutongzhi.png", "服务通知", 0, 0),
+           menuItem(R.resourcesImagesMsgsHuodongxiaoxiPng, "活动消息", 0, 1),
+          menuItem(R.resourcesImagesMsgsZhaohutongzhiPng, "账户通知", 0, 0),
+          menuItem(R.resourcesImagesMsgsFuwutongzhiPng, "服务通知", 0, 0),
         ],
       ),
       decoration: BoxDecoration(

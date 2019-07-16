@@ -1,3 +1,4 @@
+import 'package:Flutter/r.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -15,7 +16,7 @@ class DIBasicNavView extends PreferredSize {
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Color(0xff333333),fontSize: 18),
               );
-    var backIcon = InkWell(child: Image.asset("images/form/zuojiantou-.png"),
+    var backIcon = InkWell(child: Image.asset(R.resourcesImagesFormZuojiantouPng),
     onTap: (){
       Navigator.pop(context);
     },);

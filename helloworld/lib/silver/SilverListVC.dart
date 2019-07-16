@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:Flutter/r.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -28,7 +29,7 @@ class SilverListVC extends StatelessWidget {
           pinned: true, 
           flexibleSpace: new FlexibleSpaceBar(
             title: const Text("Order Summary"),
-            background: new Image.asset("images/lake.jpg", fit: BoxFit.cover),
+            background: new Image.asset(R.resourcesImagesLakeJpg, fit: BoxFit.cover),
           ),
         ),
         getPersistentHeader(),

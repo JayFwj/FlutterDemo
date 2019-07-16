@@ -1,3 +1,4 @@
+import 'package:Flutter/r.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -372,20 +373,20 @@ class IndustryRowView extends StatelessWidget {
               // Navigator.pushNamed(context, "/ScrollChangeLayoutVC");
               Navigator.pushNamed(context, "/MallProductDetail");
             },
-            child: ButtonItemView("家电", "images/home/jiadian.png", titleColor),
+            child: ButtonItemView("家电", R.resourcesImagesHomeJiadianPng, titleColor),
           ),
           InkWell(
             onTap: () {
               // Scaffold.of(context).showSnackBar(SnackBar(content: Text("I am Rout menu")));
               Navigator.pushNamed(context, "/ImagePickerVC");
             },
-            child: ButtonItemView("相机", "images/home/shouji.png", titleColor),
+            child: ButtonItemView("相机", R.resourcesImagesHomeShoujiPng, titleColor),
           ),
           GestureDetector(
             onTap: () {
               Navigator.pushNamed(context, "/SqliteVC");
             },
-            child: ButtonItemView("Sql", "images/home/shuma.png", titleColor),
+            child: ButtonItemView("Sql", R.resourcesImagesHomeShumaPng, titleColor),
           ),
           InkWell(
             onTap: () {
@@ -393,7 +394,7 @@ class IndustryRowView extends StatelessWidget {
 
               Navigator.pushNamed(context, "/WxHomeVc");
             },
-            child: ButtonItemView("wx", "images/home/diannao.png", titleColor),
+            child: ButtonItemView("wx", R.resourcesImagesHomeDiannaoPng, titleColor),
           ),
           InkWell(
               onTap: () {
@@ -402,7 +403,7 @@ class IndustryRowView extends StatelessWidget {
               },
               child: ButtonItemView(
                 "播视",
-                "images/home/jiaju.png",
+                R.resourcesImagesHomeJiajuPng,
                 titleColor,
               )),
         ]);
@@ -490,7 +491,7 @@ class SectionItemView extends StatelessWidget {
     );
 
     var iconView = Image.asset(
-      "images/home/jiantou.png",
+      R.resourcesImagesHomeJiantouPng,
       width: 5,
       height: 8,
     );
@@ -545,7 +546,6 @@ class BrandItemView extends StatelessWidget {
           fontWeight: FontWeight.bold, fontSize: 14, color: Colors.black),
     );
 
-//    var logoView = Image.asset("images/lake.jpg", width: 80, height: 80,fit: BoxFit.fitWidth,);
 
     var logoView = Hero(
       child: CachedNetworkImage(
@@ -610,7 +610,7 @@ class BrandItemView extends StatelessWidget {
                           // Scaffold.of(context).showSnackBar(SnackBar(content: Text("在线客服")));
                         },
                         child: BrandMenuItemView(
-                            "在线客服", "images/home/jiaju.png", Color(0xff999999)),
+                            "在线客服", R.resourcesImagesHomeJiajuPng, Color(0xff999999)),
                       ),
                       new GestureDetector(
                           onTap: () {
@@ -618,7 +618,7 @@ class BrandItemView extends StatelessWidget {
                             pushToLoginVC(context);
                           },
                           child: BrandMenuItemView("服务大厅",
-                              "images/home/jiaju.png", Color(0xff999999))),
+                              R.resourcesImagesHomeJiajuPng, Color(0xff999999))),
                       new GestureDetector(
                           onTap: () {
                             // Navigator.pushNamed(context, "/animation");
@@ -628,7 +628,7 @@ class BrandItemView extends StatelessWidget {
                             //Scaffold.of(context).showSnackBar(SnackBar(content: Text("官网商场")));
                           },
                           child: BrandMenuItemView("官网商城",
-                              "images/home/jiaju.png", Color(0xff999999)))
+                              R.resourcesImagesHomeJiajuPng, Color(0xff999999)))
                     ],
                   )
                 ],
@@ -780,7 +780,7 @@ class HomeNavBarView extends PreferredSize {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    var logoImg = Image.asset("images/home/logo.png");
+    var logoImg = Image.asset(R.resourcesImagesHomeLogoPng);
     var logoview = Container(
       child: logoImg,
       margin: EdgeInsets.only(left: 10),
@@ -791,7 +791,7 @@ class HomeNavBarView extends PreferredSize {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset("images/home/fangdajing.png"),
+            Image.asset(R.resourcesImagesHomeFangdajingPng),
             Container(
               child: Text(
                 "品牌名称",

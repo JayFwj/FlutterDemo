@@ -1,4 +1,5 @@
 import 'package:Flutter/Form/addrManage/AddrModel.dart';
+import 'package:Flutter/r.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -20,7 +21,7 @@ class DIBasicInfoItem extends StatelessWidget{
     var titleValueLbl = Text(this.hint, 
     style: TextStyle(fontSize: 14, color: Color(0xffc9caca)),);
 
-    var indicatorView = Image.asset("images/home/jiantou.png");
+    var indicatorView = Image.asset(R.resourcesImagesHomeJiantouPng);
 
     var bottomLine = Container(color: Color(0xfff3f8f9),height: 1,);
 
@@ -87,8 +88,8 @@ class _DIBasicAddrItemViewState extends State<DIBasicAddrItemView>{
    var titleValueLbl = Text("请填写联系人及服务地址", 
     style: TextStyle(fontSize: 14, color: Color(0xffc9caca)),);
 
-    var exclamatoryMarkView = Image.asset("images/form/gantanhao.png");
-    var indicatorView = Image.asset("images/home/jiantou.png");
+    var exclamatoryMarkView = Image.asset(R.resourcesImagesFormGantanhaoPng);
+    var indicatorView = Image.asset(R.resourcesImagesHomeJiantouPng);
 
 
     var emptyView = Container(color: Colors.white,
@@ -123,7 +124,7 @@ class DIBasicHeaderView extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    Image iconView = Image.asset("images/form/shangmenweixiu.png",fit: BoxFit.fill,);
+    Image iconView = Image.asset(R.resourcesImagesFormShangmenweixiuPng,fit: BoxFit.fill,);
     Text txt = Text(this.title, style: TextStyle(color: Color(0xff666666), fontSize: 16, fontWeight: FontWeight.bold));
 
     return Container(

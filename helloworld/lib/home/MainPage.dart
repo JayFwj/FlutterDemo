@@ -7,6 +7,9 @@ import 'package:Flutter/silver/SilverListVC.dart';
 import 'package:Flutter/transform/TransformVC.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
 import 'Animation/FadeinAnimVC.dart';
 import 'Animation/LoadingProgressVC.dart';
 import 'HomeVC.dart';
@@ -42,11 +45,26 @@ import '../shoppingcart/ShoppingCartVC.dart';
 import './mall/MallVC.dart';
 import 'mall/detail/MallProductDetail.dart';
 import 'scan/ScanQRVC.dart';
-
+ 
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+     var dataProvider = EasyLocalizationProvider.of(context);
+     var data = dataProvider.data;
+
+     var mate = new MaterialApp( 
+      localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          //app-specific localization
+          EasylocaLizationDelegate(
+              locale: data.locale ?? Locale('zh', 'CN'),
+              path: 'resources/langs'),
+        ],
+        supportedLocales: [Locale('en', 'US'),
+         Locale('zh', 'CN')
+         ],
+        locale: data.locale,
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
           "/login": (BuildContext context) => new LoginVC(),
@@ -98,7 +116,14 @@ class MainPage extends StatelessWidget {
         "/AddrManageListVC": (BuildContext context) => new AddrManageListVC(),
         
         },
-        home: new MainPageWidget()); 
+        home: new MainPageWidget());
+
+     
+    return EasyLocalizationProvider(
+      data: data,
+      child:mate
+     );
+    // return mate;
   }
 }
 

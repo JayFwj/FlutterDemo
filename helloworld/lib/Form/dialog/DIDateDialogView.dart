@@ -1,3 +1,4 @@
+import 'package:Flutter/r.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -157,7 +158,7 @@ class _DIDateDialogViewState extends State<DIDateDialogView> {
           color: selected ? sDateColor : normalDateColor, fontSize: 14),
     );
 
-    Image selectedIconView = Image.asset("images/form/sanjiaogou.png");
+    Image selectedIconView = Image.asset(R.resourcesImagesFormSanjiaogouPng);
 
     Container view = Container(
       width: 85,
@@ -200,7 +201,7 @@ class _DIDateDialogViewState extends State<DIDateDialogView> {
       style: TextStyle(color: currentColor, fontSize: 12),
     );
 
-    Image selectedIconView = Image.asset("images/form/sanjiaogou.png");
+    Image selectedIconView = Image.asset(R.resourcesImagesFormSanjiaogouPng);
 
     Container view = Container(
       width: 115,

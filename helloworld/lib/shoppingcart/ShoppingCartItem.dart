@@ -1,4 +1,5 @@
 import 'package:Flutter/plugin/stepper.dart';
+import 'package:Flutter/r.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -105,7 +106,7 @@ class _ShoppingCartItemState extends State<ShoppingCartItem>{
 
   @override
   Widget build(BuildContext context) {
-    var chooseBtn = InkWell(child:  Image.asset( widget.itemModel.selected ? "images/cart/lansegouxuan.png" : "images/cart/gouxuankuang.png", width: 25,
+    var chooseBtn = InkWell(child:  Image.asset( widget.itemModel.selected ? R.resourcesImagesCartLansegouxuanPng : R.resourcesImagesCartGouxuankuangPng, width: 25,
       height: 22,),
       onTap: (){
         widget.itemModel.selected = !widget.itemModel.selected;

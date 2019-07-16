@@ -1,3 +1,4 @@
+import 'package:Flutter/r.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -106,8 +107,8 @@ class _ShoppingCartBottomViewState extends State<ShoppingCartBottomView> {
           children: <Widget>[
             Image.asset(
               selected
-                  ? "images/cart/lansegouxuan.png"
-                  : "images/cart/gouxuankuang.png",
+                  ? R.resourcesImagesCartLansegouxuanPng
+                  : R.resourcesImagesCartGouxuankuangPng,
               width: 25,
               height: 22,
             ),

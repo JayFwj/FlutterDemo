@@ -1,3 +1,4 @@
+import 'package:Flutter/r.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -104,7 +105,7 @@ class MallPDBodyView extends StatelessWidget {
 
   Widget hintToLoadDetail(){
 
-    Image icon = Image.asset("images/mall/shang-la.png");
+    Image icon = Image.asset(R.resourcesImagesMallShanglaPng);
     Text txt = Text("上拉查看商品详情");
     Row row = Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -254,7 +255,7 @@ class MallPDBodyView extends StatelessWidget {
       style: TextStyle(fontSize: 14, color: Color(0xff139ff7)),
     );
 
-    Image rightIndicatorView = Image.asset("images/mall/fapiaoyoujiantou.png");
+    Image rightIndicatorView = Image.asset(R.resourcesImagesMallFapiaoyoujiantouPng);
 
     return Container(
       color: Color(0xffffffff),
@@ -284,7 +285,7 @@ class MallPDBodyView extends StatelessWidget {
       style: TextStyle(fontSize: 14, color: Color(0xffc9caca)),
     );
 
-    Image rightIndicatorView = Image.asset("images/mall/fapiaoyoujiantou.png");
+    Image rightIndicatorView = Image.asset(R.resourcesImagesMallFapiaoyoujiantouPng);
 
     return Container(
       color: Color(0xffffffff),

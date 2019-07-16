@@ -19,12 +19,16 @@ class _AddrManageListVCState extends State<AddrManageListVC>{
   void initState() {
     // TODO: implement initState
     super.initState();
-   // widget.lastSelectedAddrModel = ModalRoute.of(context).settings.arguments;
+
   }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+
+    if(this.widget.lastSelectedAddrModel == null){
+      widget.lastSelectedAddrModel = ModalRoute.of(context).settings.arguments;
+    }
+    
     return Scaffold(
       appBar: AppBar(title: Text("地址管理"),),
       body: ListView.builder(

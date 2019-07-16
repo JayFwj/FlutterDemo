@@ -1,3 +1,4 @@
+import 'package:Flutter/r.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,7 +7,7 @@ class ScanQRVC2 extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    Image image = Image.asset("images/lake.jpg", width: 100, height: 100, fit: BoxFit.fill,);
+    Image image = Image.asset(R.resourcesImagesLakeJpg, width: 100, height: 100, fit: BoxFit.fill,);
 
     var clip = ClipRect(child: 
       Align(child: image, alignment: Alignment.topCenter, heightFactor: 0.5,),

@@ -4,12 +4,9 @@ import 'package:Flutter/API/mall/MallDataModel.dart';
 import 'package:Flutter/home/mall/IconTitleBtn.dart';
 import 'package:Flutter/home/mall/MallHeadView.dart';
 import 'package:Flutter/home/mall/MallProductItem.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/rendering/sliver.dart';
-import 'package:flutter/src/rendering/sliver_grid.dart';
-import 'package:flutter/widgets.dart';
-import 'package:Flutter/shoppingcart/ShoppingCartItem.dart';
+import 'package:Flutter/r.dart';
+import 'package:flutter/material.dart'; 
+import 'package:flutter/widgets.dart'; 
 
 class MallVC extends StatefulWidget {
   HomeBrandDataItem brandModel;
@@ -262,10 +259,10 @@ class _MallVCState extends State<MallVC> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: IconTitleBtn("images/home/fuwudating.png", "进入服务大厅"),
+                  child: IconTitleBtn(R.resourcesImagesHomeFuwudatingPng, "进入服务大厅"),
                 ),
                 Expanded(
-                  child: IconTitleBtn("images/home/zaixiankefu.png", "商场客服"),
+                  child: IconTitleBtn(R.resourcesImagesMallZaixiankefuPng, "商场客服"),
                 ),
               ],
             ),

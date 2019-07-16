@@ -2,6 +2,7 @@
 //MARK:导航栏 
 import 'dart:io';
 
+import 'package:Flutter/r.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart'; 
 import 'package:share/share.dart';
@@ -16,18 +17,18 @@ class MallPDetailNavBarView extends PreferredSize {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    var fanhui = InkWell(child: Image.asset("images/mall/fanhui.png"),
+    var fanhui = InkWell(child: Image.asset(R.resourcesImagesMallFanhuiPng),
     onTap: (){
       Navigator.of(context).pop();
     },);
-    var fenxiang = InkWell(child: Image.asset("images/mall/fenxiang.png"),
+    var fenxiang = InkWell(child: Image.asset(R.resourcesImagesMallFenxiangPng),
     onTap: (){
 
       share();
       // Share.share('check out my website http://www.baidu.com');
 
     },);
-    var genduo = Image.asset("images/mall/genduo.png");
+    var genduo = Image.asset(R.resourcesImagesMallGenduoPng);
 
     double statusBarHeight = MediaQuery.of(context).padding.top; 
     double navHeight = (statusBarHeight + 44);

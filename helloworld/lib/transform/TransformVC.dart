@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:Flutter/r.dart';
 import 'package:Flutter/util/Util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
@@ -353,7 +354,7 @@ style: TextStyle(color: Colors.pink, fontSize: 16),
             constraints: BoxConstraints(maxHeight: 80),
             padding: EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 10),
             child: editableText,),
-            // Image.asset("images/lake.jpg") ,
+           
             borderRadius: BorderRadius.all(Radius.circular(30)),
             ),
             
@@ -426,7 +427,7 @@ class WaveHeaderState extends State<WaveHeader> {
                           color: const Color(0xFFFFFFFF), // border color
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                              image: AssetImage("images/lake.jpg"))))),
+                              image: AssetImage(R.resourcesImagesLakeJpg))))),
             ],
           ),
         ],
