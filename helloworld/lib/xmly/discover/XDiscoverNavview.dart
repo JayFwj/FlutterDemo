@@ -4,16 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
  
 //MARK:导航栏
-class DIBasicNavView extends PreferredSize {
+class XDiscoverNavview extends PreferredSize {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-   
-    Text titleView = Text(
-                "上门安装",
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Color(0xff333333),fontSize: 18),
-              );
+  
     var backIcon = InkWell(child: Image.asset(R.resourcesImagesFormZuojiantouPng),
     onTap: (){
       Navigator.pop(context);
@@ -22,14 +16,22 @@ class DIBasicNavView extends PreferredSize {
     var navView = SafeArea( 
         top: true, 
         child: Container(
+          color: Colors.white,
           alignment: FractionalOffset.center,
-          child:Stack(children: <Widget>[
-            Center(child: titleView),
-            Positioned(child: 
-            Container(child: backIcon, width: 44, height: kBottomNavigationBarHeight,),
-            left: 0
-            ,)
-          ],) ,
+          child:Row(
+            children: <Widget>[
+              InkWell(child: Container(child: Icon(Icons.person_add),
+              margin: EdgeInsets.only(left: 12),
+              ),
+              onTap: (){
+                Navigator.of(context).pop();
+              },),
+              Expanded(child: Container(child: Center(child: Text("发现",style: TextStyle(fontSize: 18),),),),),
+              Container(child: Icon(Icons.search),
+              margin: EdgeInsets.only(right: 12),
+              ),
+            ],
+          ) ,
           height: 80,
         ));
 

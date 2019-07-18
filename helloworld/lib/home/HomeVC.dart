@@ -1,4 +1,5 @@
 import 'package:Flutter/r.dart';
+import 'package:Flutter/widget/Anima_photo.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -556,7 +557,7 @@ class BrandItemView extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         fit: BoxFit.fill,
       ),
-      tag: dataItem.id,
+      tag: this.dataItem.logo,
     );
 
     return Container(
@@ -577,11 +578,13 @@ class BrandItemView extends StatelessWidget {
                 child: InkWell(
                   child: logoView,
                   onTap: () {
-                    Navigator.of(context).push(new PageRouteBuilder(
-                        opaque: false,
-                        pageBuilder: (BuildContext context, _, __) {
-                          return HomeDetailVC(this.dataItem);
-                        }));
+                    // Navigator.of(context).push(new PageRouteBuilder(
+                    //     opaque: false,
+                    //     pageBuilder: (BuildContext context, _, __) {
+                    //       return HomeDetailVC(this.dataItem);
+                    //     }));
+
+                    AnimalPhoto.show(context, this.dataItem.logo);
                   },
                 ),
                 width: 110,

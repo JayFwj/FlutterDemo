@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:Flutter/r.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_villains/villain.dart';
 import '../poproute/PopRoute.dart';
 
 class HomeMenuOverlayView extends StatefulWidget {
@@ -48,6 +49,13 @@ class _HomeMenuOverlayViewState extends State<HomeMenuOverlayView>
 
      HomeMenuItemView(
           R.resourcesImagesHomeShumaPng, "PopRoute", itemHeight, 7, this.dismissCallback),
+
+      HomeMenuItemView(
+          R.resourcesImagesHomeShumaPng, "RadialBtn", itemHeight, 8, this.dismissCallback),
+      HomeMenuItemView(
+          R.resourcesImagesHomeShumaPng, "喜马拉雅", itemHeight, 9, this.dismissCallback),
+
+          
     ];
 
     double width = expanded ? 130 : 44;
@@ -86,22 +94,22 @@ class _HomeMenuOverlayViewState extends State<HomeMenuOverlayView>
         duration: Duration(milliseconds: 200),
         curve: Curves.fastOutSlowIn, //easeInOutCirc easeInOutBack bounceIn
       ),
-      onTap: () {
+      onTap: () { 
         expanded = !expanded;
         setState(() {});
       },
     );
 
-    if (menuImageData == null) {
-      Timer(Duration(milliseconds: 400), () {
-        takeScreenShot();
-      });
-    } else {
-      Timer(Duration(milliseconds: 120), () {
-        menuImageData = null;
-        setState(() {});
-      });
-    }
+    // if (menuImageData == null) {
+    //   Timer(Duration(milliseconds: 400), () {
+    //     takeScreenShot();
+    //   });
+    // } else {
+    //   Timer(Duration(milliseconds: 120), () {
+    //     menuImageData = null;
+    //     setState(() {});
+    //   });
+    // }
 
     return container;
   }
@@ -182,8 +190,14 @@ class HomeMenuItemView extends StatelessWidget {
               ),
             ),
           );
-        }
+        
+        }else if(this.id == 8){ 
+          Navigator.of(context).pushNamed("/RadialBtnTest");
 
+        } 
+        else if(this.id == 9){ 
+          Navigator.of(context).pushNamed("/XTabbar");
+        } 
         this.dismissCallback();
       },
     );

@@ -21,7 +21,7 @@ packages:
       name: boolean_selector
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.5"
   cached_network_image:
     dependency: "direct main"
     description:
@@ -123,6 +123,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.0.3"
+  flutter_sequence_animation:
+    dependency: transitive
+    description:
+      name: flutter_sequence_animation
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.0.1"
   flutter_socket_io:
     dependency: "direct main"
     description:
@@ -156,6 +163,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_villains:
+    dependency: "direct main"
+    description:
+      name: flutter_villains
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.2.1"
   flutter_webview_plugin:
     dependency: "direct main"
     description:
@@ -260,7 +274,7 @@ packages:
       name: pedantic
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.7.0"
+    version: "1.8.0+1"
   quiver:
     dependency: transitive
     description:
@@ -414,5 +428,5 @@ packages:
     source: hosted
     version: "0.3.9+1"
 sdks:
-  dart: ">=2.2.0 <3.0.0"
+  dart: ">=2.2.2 <3.0.0"
   flutter: ">=1.5.0 <2.0.0"

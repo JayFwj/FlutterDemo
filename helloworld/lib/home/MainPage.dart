@@ -2,9 +2,14 @@ import 'package:Flutter/Form/addrManage/AddrManageListVC.dart';
 import 'package:Flutter/Form/doorInstall/DoorInstallVC.dart';
 import 'package:Flutter/draw/DrawPractice.dart';
 import 'package:Flutter/draw/PathAnimation.dart';
+import 'package:Flutter/home/villains/Profile.dart';
 import 'package:Flutter/me/MeVC.dart';
+import 'package:Flutter/r.dart';
+import 'package:Flutter/radialBtn/RadialBtnTest.dart';
 import 'package:Flutter/silver/SilverListVC.dart';
 import 'package:Flutter/transform/TransformVC.dart';
+import 'package:Flutter/xmly/mine/XMine.dart';
+import 'package:Flutter/xmly/tabbar/XTabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -114,7 +119,15 @@ class MainPage extends StatelessWidget {
         "/DoorInstallVC": (BuildContext context) => new DoorInstallVC(),
         
         "/AddrManageListVC": (BuildContext context) => new AddrManageListVC(),
+
+        "/ProfilePage": (BuildContext context) => new ProfilePage(),
+
+        "/XMine": (BuildContext context) => new XMine(),
+        "/XTabbar": (BuildContext context) => new XTabbar(),
+
+        "/RadialBtnTest": (BuildContext context) => new RadialBtnTest(),
         
+        //
         },
         home: new MainPageWidget());
 
@@ -178,20 +191,20 @@ class MainPageState extends State<MainPageWidget> {
      */
     tabImages = [
       [
-        getTabImage('images/home/shouyekong.png'),
-        getTabImage('images/home/shouyeshi.png')
+        getTabImage(R.resourcesImagesHomeShouyekongPng),
+        getTabImage(R.resourcesImagesHomeShouyeshiPng)
       ],
       [
-        getTabImage('images/home/xiaoxikong.png'),
-        getTabImage('images/home/xiaoxishi.png')
+        getTabImage(R.resourcesImagesHomeXiaoxikongPng),
+        getTabImage(R.resourcesImagesHomeXiaoxishiPng)
       ],
       [
-        getTabImage('images/home/gouwuchekong.png'),
-        getTabImage('images/home/gouwucheshi.png')
+        getTabImage(R.resourcesImagesHomeGouwuchekongPng),
+        getTabImage(R.resourcesImagesHomeGouwucheshiPng)
       ],
       [
-        getTabImage('images/home/wodekong.png'),
-        getTabImage('images/home/wodeshi.png')
+        getTabImage(R.resourcesImagesHomeWodekongPng),
+        getTabImage(R.resourcesImagesHomeWodeshiPng)
       ]
     ];
 

@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
  
-void main() {
+void main() {	
+	
+	debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
    
     runApp(EasyLocalization(child: MainPage()));
 }

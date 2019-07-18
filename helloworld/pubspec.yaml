@@ -53,6 +53,8 @@ dependencies:
   barcode_scan: ^0.0.3 
   easy_localization: ^1.2.0+1
 
+  flutter_villains: "^1.2.1"
+
 
 dev_dependencies: 
   flutter_test:   
@@ -74,7 +76,7 @@ flutter:
   # assets:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
-
+  
   assets: 
   - res/icons/ic_play.png
   - res/icons/2.0x/ic_play.png
@@ -94,79 +96,72 @@ flutter:
   - res/icons/ic_volume_up.png
   - res/icons/2.0x/ic_volume_up.png
   - res/icons/3.0x/ic_volume_up.png
-
-  # assets begin
-  # resources/* 
-    - resources/.DS_Store
-    - resources/images/home/guanwangshangcheng.png
-    - resources/images/home/.DS_Store
-    - resources/images/home/jiadianpinpai.png
-    - resources/images/home/xiaoxishi.png
-    - resources/images/home/wodekong.png
-    - resources/images/home/shouyekong.png
-    - resources/images/home/xiaoxikong.png
-    - resources/images/home/shouyeshi.png
-    - resources/images/home/shouji.png
-    - resources/images/home/pinpaituijian.png
-    - resources/images/home/shuma.png
-    - resources/images/home/wodechanpin.png
-    - resources/images/home/diannao.png
-    - resources/images/home/fangdajing.png
-    - resources/images/home/jiadian.png
-    - resources/images/home/gouwucheshi.png
-    - resources/images/home/jiajupinpai.png
-    - resources/images/home/zaixiankefu.png
-    - resources/images/home/logo.png
-    - resources/images/home/wodeshi.png
-    - resources/images/home/shoujipinpai.png
-    - resources/images/home/aidian.png
-    - resources/images/home/jiaju.png
-    - resources/images/home/jiantou.png
-    - resources/images/home/diannaoppinpai.png
-    - resources/images/home/shumapinpai.png
-    - resources/images/home/fuwudating.png
-    - resources/images/home/gouwuchekong.png
-    - resources/images/form/.DS_Store
-    - resources/images/form/sanjiaogou.png
-    - resources/images/form/shangmenweixiu.png
-    - resources/images/form/gantanhao.png
-    - resources/images/form/zuojiantou.png
-    - resources/images/.DS_Store
-    - resources/images/2.0x/sanjiaogou.png
-    - resources/images/2.0x/shangmenweixiu.png
-    - resources/images/2.0x/gantanhao.png
-    - resources/images/2.0x/zuojiantou.png
-    - resources/images/3.0x/sanjiaogou.png
-    - resources/images/3.0x/shangmenweixiu.png
-    - resources/images/3.0x/zuojiantou.png
-    - resources/images/msgs/fuwutongzhi.png
-    - resources/images/msgs/zhaohutongzhi.png
-    - resources/images/msgs/huodongxiaoxi.png
-    - resources/images/flower.jpg
-    - resources/images/cart/gouxuankuang.png
-    - resources/images/cart/lansegouxuan.png
-    - resources/images/lake.jpg
-    - resources/images/mall/fapiaoyoujiantou.png
-    - resources/images/mall/.DS_Store
-    - resources/images/mall/genduo.png
-    - resources/images/mall/fanhui.png
-    - resources/images/mall/zaixiankefu.png
-    - resources/images/mall/fuwushangcheng.png
-    - resources/images/mall/shangla.png
-    - resources/images/mall/fuwudating.png
-    - resources/images/mall/fenxiang.png
-    - resources/langs/zh-CN.json
-    - resources/langs/en-US.json
-  # assets end
-
-  
- 
-  
-
-
-   
- 
-
+# assets begin
+# resources/*  
+  - resources/images/home/guanwangshangcheng.png 
+  - resources/images/home/jiadianpinpai.png
+  - resources/images/home/xiaoxishi.png
+  - resources/images/home/wodekong.png
+  - resources/images/home/shouyekong.png
+  - resources/images/home/xiaoxikong.png
+  - resources/images/home/shouyeshi.png
+  - resources/images/home/shouji.png
+  - resources/images/home/pinpaituijian.png
+  - resources/images/home/shuma.png
+  - resources/images/home/wodechanpin.png
+  - resources/images/home/diannao.png
+  - resources/images/home/fangdajing.png
+  - resources/images/home/jiadian.png
+  - resources/images/home/gouwucheshi.png
+  - resources/images/home/jiajupinpai.png
+  - resources/images/home/zaixiankefu.png
+  - resources/images/home/logo.png
+  - resources/images/home/wodeshi.png
+  - resources/images/home/shoujipinpai.png
+  - resources/images/home/aidian.png
+  - resources/images/home/jiaju.png
+  - resources/images/home/jiantou.png
+  - resources/images/home/diannaoppinpai.png
+  - resources/images/home/shumapinpai.png
+  - resources/images/home/fuwudating.png
+  - resources/images/home/gouwuchekong.png 
+  - resources/images/form/sanjiaogou.png
+  - resources/images/form/shangmenweixiu.png
+  - resources/images/form/gantanhao.png
+  - resources/images/form/zuojiantou.png 
+  - resources/images/2.0x/sanjiaogou.png
+  - resources/images/2.0x/shangmenweixiu.png
+  - resources/images/2.0x/gantanhao.png
+  - resources/images/2.0x/zuojiantou.png
+  - resources/images/3.0x/sanjiaogou.png
+  - resources/images/3.0x/shangmenweixiu.png
+  - resources/images/3.0x/zuojiantou.png
+  - resources/images/msgs/fuwutongzhi.png
+  - resources/images/msgs/zhaohutongzhi.png
+  - resources/images/msgs/huodongxiaoxi.png
+  - resources/images/flower.jpg
+  - resources/images/cart/gouxuankuang.png
+  - resources/images/cart/lansegouxuan.png
+  - resources/images/lake.jpg
+  - resources/images/mall/fapiaoyoujiantou.png 
+  - resources/images/mall/genduo.png
+  - resources/images/mall/fanhui.png
+  - resources/images/mall/zaixiankefu.png
+  - resources/images/mall/fuwushangcheng.png
+  - resources/images/mall/shangla.png
+  - resources/images/mall/fuwudating.png
+  - resources/images/mall/fenxiang.png
+  - resources/langs/zh-CN.json
+  - resources/langs/en-US.json
+  - resources/xmly/host_small_icon_default_7.png
+  - resources/xmly/host_small_icon_default_6.png
+  - resources/xmly/host_small_icon_default_4.png
+  - resources/xmly/host_small_icon_default_5.png
+  - resources/xmly/host_small_icon_default_1.png
+  - resources/xmly/host_small_icon_default_2.png
+  - resources/xmly/host_small_icon_default_3.png
+  - resources/xmly/feed_btn_play.png
+  # assets end 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 

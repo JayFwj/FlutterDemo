@@ -1,8 +1,8 @@
 class R {
+ 
   /// ![](http://127.0.0.1:2227/resources/images/home/guanwangshangcheng.png)
   static final String resourcesImagesHomeGuanwangshangchengPng = 'resources/images/home/guanwangshangcheng.png';
-  /// ![](http://127.0.0.1:2227/resources/images/home/.DS_Store)
-  static final String resourcesImagesHomeDsStore = 'resources/images/home/.DS_Store';
+ 
   /// ![](http://127.0.0.1:2227/resources/images/home/jiadianpinpai.png)
   static final String resourcesImagesHomeJiadianpinpaiPng = 'resources/images/home/jiadianpinpai.png';
   /// ![](http://127.0.0.1:2227/resources/images/home/xiaoxishi.png)
@@ -97,8 +97,7 @@ class R {
   static final String resourcesImagesLakeJpg = 'resources/images/lake.jpg';
   /// ![](http://127.0.0.1:2227/resources/images/mall/fapiaoyoujiantou.png)
   static final String resourcesImagesMallFapiaoyoujiantouPng = 'resources/images/mall/fapiaoyoujiantou.png';
-  /// ![](http://127.0.0.1:2227/resources/images/mall/.DS_Store)
-  static final String resourcesImagesMallDsStore = 'resources/images/mall/.DS_Store';
+ 
   /// ![](http://127.0.0.1:2227/resources/images/mall/genduo.png)
   static final String resourcesImagesMallGenduoPng = 'resources/images/mall/genduo.png';
   /// ![](http://127.0.0.1:2227/resources/images/mall/fanhui.png)
@@ -113,6 +112,21 @@ class R {
   static final String resourcesImagesMallFuwudatingPng = 'resources/images/mall/fuwudating.png';
   /// ![](http://127.0.0.1:2227/resources/images/mall/fenxiang.png)
   static final String resourcesImagesMallFenxiangPng = 'resources/images/mall/fenxiang.png';
-  /// ![](http://127.0.0.1:2227/resources/langs/zh-CN.json)
  
+  /// ![](http://127.0.0.1:2227/resources/xmly/host_small_icon_default_7.png)
+  static final String resourcesXmlyHostSmallIconDefault7Png = 'resources/xmly/host_small_icon_default_7.png';
+  /// ![](http://127.0.0.1:2227/resources/xmly/host_small_icon_default_6.png)
+  static final String resourcesXmlyHostSmallIconDefault6Png = 'resources/xmly/host_small_icon_default_6.png';
+  /// ![](http://127.0.0.1:2227/resources/xmly/host_small_icon_default_4.png)
+  static final String resourcesXmlyHostSmallIconDefault4Png = 'resources/xmly/host_small_icon_default_4.png';
+  /// ![](http://127.0.0.1:2227/resources/xmly/host_small_icon_default_5.png)
+  static final String resourcesXmlyHostSmallIconDefault5Png = 'resources/xmly/host_small_icon_default_5.png';
+  /// ![](http://127.0.0.1:2227/resources/xmly/host_small_icon_default_1.png)
+  static final String resourcesXmlyHostSmallIconDefault1Png = 'resources/xmly/host_small_icon_default_1.png';
+  /// ![](http://127.0.0.1:2227/resources/xmly/host_small_icon_default_2.png)
+  static final String resourcesXmlyHostSmallIconDefault2Png = 'resources/xmly/host_small_icon_default_2.png';
+  /// ![](http://127.0.0.1:2227/resources/xmly/host_small_icon_default_3.png)
+  static final String resourcesXmlyHostSmallIconDefault3Png = 'resources/xmly/host_small_icon_default_3.png';
+  /// ![](http://127.0.0.1:2227/resources/xmly/feed_btn_play.png)
+  static final String resourcesXmlyFeedBtnPlayPng = 'resources/xmly/feed_btn_play.png';
 }
